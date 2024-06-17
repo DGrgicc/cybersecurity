@@ -1,4 +1,4 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,6 +17,7 @@ Lozinka password[3];
 Korisnik korisnici[3];
 void generiraj_lozinke() {
     FILE* f;  
+    int br = 1;
     int shift = 0;
     f = fopen("lozinke.txt", "w");
     fclose(f);
@@ -70,11 +71,12 @@ void generiraj_lozinke() {
                 printf("Neispravan unos! Molimo unesite broj.\n");
                 while (getchar() != '\n'); // Očisti unos
             }
-            else if (lozinke[i].metoda == 1 || lozinke[i].metoda == 2 || lozinke[i].metoda == 3) {
+            else if (lozinke[i].metoda == br) {
+                br++;
                 break; // validan unos, izlazi iz petlje
             }
             else {
-                printf("Neispravan izbor! Molimo unesite ponovo.\n");
+                printf("Neispravan izbor! Molim idete redom!\n");
             }
         }
 
